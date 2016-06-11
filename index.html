@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <form id="frm1" action="javascript:myFunction()">
+        To translate: <input type="text" name="fname" value="far away world">
+    </form>
+    <button onclick="myFunction()">Try it</button><br>
+    <br>
+
+
+    <!-- <p id="demo"></p> -->
+
+    <iframe id="gif" src="http://giphy.com/embed/TanhZDPNHM4zC" width="480" height="293" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+    <script>
+    function myFunction() {
+        var x = document.getElementById("frm1");
+        var text = "";
+        text += x.elements[0].value + "<br>";
+
+        callApi(text, function(response){
+            res = JSON.parse(response);
+            console.log(res.data.embed_url);
+            // document.getElementById("demo").innerHTML = res.data.embed_url
+            document.getElementById("gif").src = res.data.embed_url
+        })
+
+    }
+
+    function translate(phrase){
+        endpoint = "http://api.giphy.com/v1/gifs/translate"
+        api_key = "dc6zaTOxFJmzC"
+        built = endpoint + "?api_key=" + api_key + "&s=" + phrase.replace(" ", "+") + "&fmt=json&rating=r"
+        console.log(built);
+        return built
+    }
+
+    function httpGetAsync(theUrl, callback){
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+        }
+        xmlHttp.open("GET", theUrl, true); // true for asynchronous
+        xmlHttp.send(null);
+    }
+
+    function callApi(phrase, callback){
+        url = translate(phrase)
+        httpGetAsync(url, callback)
+    }
+    </script>
+
+</body>
+</html>
