@@ -41,7 +41,7 @@ var phrases = [
   },
   {
     "phrase": "tinder robot",
-    "duration": 1
+    "duration": 2
   },
   {
     "phrase": "wonderland",

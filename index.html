@@ -5,8 +5,7 @@
   <script src="scripts/phrases.js" type="text/javascript"></script>
 </head>
 <body>
-  <audio id="smilin" controls><source src="smilin.mp3" type="audio/mp3">
-  </audio>
+  <audio id="smilin" controls onplay="smilin_onplay()"><source src="smilin.mp3" type="audio/mp3"></audio>
 
   <form id="frm1" action="javascript:myFunction()">
     To translate: <input type="text" name="fname" value="far away world">

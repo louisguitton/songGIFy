@@ -1,3 +1,11 @@
+var beat = 2500
+
+smilin_onplay = function() {
+    console.log("The video has started to play");
+    setTimeout(automatic, 8000)
+};
+
+
 function myFunction() {
   var x = document.getElementById("frm1");
   var text = "";
@@ -13,22 +21,27 @@ function myFunction() {
 }
 
 function automatic(){
-    var beat = 2500
-    
-    var i = 0
-    setInterval(function(){
-      if (i<phrases.length){
-        text = phrases[i].phrase
-        console.log(text);
-        callApi(text, function(response){
-          res = JSON.parse(response);
-          // console.log(res.data.embed_url);
-          document.getElementById("gif").src = res.data.embed_url
-          // document.getElementById("gif").src = res.data.image_url
-          i ++
-        })
+  var i = 0
+  recursive(i)
+}
+
+function recursive(i){
+  console.log(phrases[i].phrase);
+  setTimeout(function(){
+    text = phrases[i].phrase
+
+    callApi(text, function(response){
+      res = JSON.parse(response);
+      // console.log(res.data.embed_url);
+      document.getElementById("gif").src = res.data.embed_url
+      // document.getElementById("gif").src = res.data.image_url
+
+      i++
+      if (i<phrases.length) {
+        recursive(i)
       }
-    },beat);
+    })
+  }, (i==0) ? 0 : phrases[i-1].duration * beat)
 }
 
 function translate(phrase){
