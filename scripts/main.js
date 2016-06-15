@@ -1,8 +1,8 @@
-var beat = 2500
+var beat = 2450
 
 smilin_onplay = function() {
     console.log("The video has started to play");
-    setTimeout(automatic, 8000)
+    setTimeout(automatic, 8500)
 };
 
 
@@ -32,9 +32,10 @@ function recursive(i){
 
     callApi(text, function(response){
       res = JSON.parse(response);
-      // console.log(res.data.embed_url);
-      document.getElementById("gif").src = res.data.embed_url
-      // document.getElementById("gif").src = res.data.image_url
+
+      document.getElementById("gif").src = res.data.embed_url;
+
+      document.getElementById("lyrics").innerHTML = phrases[i].lyrics;
 
       i++
       if (i<phrases.length) {

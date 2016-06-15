@@ -1,24 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Smilin' Music Video</title>
   <script src="scripts/main.js" type="text/javascript"></script>
   <script src="scripts/phrases.js" type="text/javascript"></script>
+  <style media="screen">
+    #wrapper {
+      width: 70%;     /* specify a width! */
+      margin: 0 auto; /* center */
+    }
+    #lyrics {
+      font-size: larger
+    }
+  </style>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </head>
 <body>
-  <audio id="smilin" controls onplay="smilin_onplay()"><source src="smilin.mp3" type="audio/mp3"></audio>
+  <div id="wrapper">
+    <h1>Smilin' - Las Conejitas</h1>
+      <h4>
+        Play the music and the video will start.<br>
+        Reload, Watch it again, it won't be the same!
+      </h4>
+    <div class="row">
+  <div class="col-md-6">
+    <br>
+    <audio id="smilin" controls onplay="smilin_onplay()"><source src="smilin.mp3" type="audio/mp3"></audio>
+    <br>
+  </div>
+  <div class="col-md-6"><p id="lyrics"></p></div>
+</div>
 
-  <form id="frm1" action="javascript:myFunction()">
-    To translate: <input type="text" name="fname" value="far away world">
-  </form>
-  <button onclick="myFunction()">Try it</button><br>
-  <button onclick="automatic()">Automatic</button><br>
-  <br>
+    <!-- <form id="frm1" action="javascript:myFunction()">
+      To translate: <input type="text" name="fname" value="far away world">
+    </form>
+    <button onclick="myFunction()">Try it</button><br> -->
+    <!-- <button onclick="automatic()">Automatic</button><br> -->
 
-
-  <!-- <p id="demo"></p> -->
-
-  <iframe id="gif" src="lapin.jpg" width="480" height="400" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
-
-
+    <iframe id="gif" src="lapin.jpg" width="700" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+  </div>
 </body>
 </html>
